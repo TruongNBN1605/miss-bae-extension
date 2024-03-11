@@ -1,8 +1,49 @@
 body {
-    background-color: #222;
+    background-color: #f5f5f5;
     color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.special-text {
-    color: red;
+#container {
+    padding: 16px 24px;
+    width: 20rem;
+    height: auto;
+}
+
+.heading {
+    width: 100%;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.btn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.65);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Thêm box shadow */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.btn:hover {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Thêm box shadow khi hover */
+    transform: scale(1.05); /* Phóng to khi hover */
+}
+
+#eat-btn {
+    background-color: #ffffb8;
+}
+#drink-btn {
+    background-color: #fff1b8;
+}
+#chat-btn {
+    background-color: #ffd6e7;
+}
+#meet-btn {
+    background-color: #ffa39e;
 }
