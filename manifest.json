@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Miss Bae",
+    "description": "Call me bae!",
+    "version": "0.0.1",
+    "icons": {
+        "16": "logo/logo-16.png",
+        "48": "logo/logo-48.png",
+        "128": "logo/logo-128.png"
+    },
+    "options_page": "settings/settings.html",
+    "action": {
+        "default_title": "Nhớ anh yêu rồi à?",
+        "default_popup": "popup/popup.html"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    },
+    "permissions": [],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [{
+        "js": ["foreground.js"],
+        "matches": ["<all_urls>"]
+    }]
+}
