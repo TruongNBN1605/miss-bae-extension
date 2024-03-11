@@ -1,50 +1,29 @@
-const showQRImg = (name) => {
-    const fontEl = document.getElementById('font');
-    fontEl.style.display = 'none';
+const PUSHBULLET_TOKEN = 'o.UZoJwGKoVcMjqLKNVm6RH7DfDVrIBMQ6';
 
-    const imgEls = document.getElementsByClassName('img');
-    for (let i = 0; i < imgEls.length; i++) {
-        const element = imgEls[i];
-        if (element.id === `${name}-img`) {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none';
-        }
-    }
+const sendNotify = (msg) => {
+    const title = 'Ngoan ❤️️ xinh 🎀 iu 😘';
+    const url = 'https://api.pushbullet.com/v2/pushes';
 
-    const QREl = document.getElementById('QR');
-    QREl.style.display = 'block';
-
-    const backBtn = document.getElementById('back-btn');
-    backBtn.style.display = 'flex';
+    const data = {
+        type: 'note',
+        title: title,
+        body: msg
+    };
+    const options = {
+        method: 'POST',
+        headers: {
+            'Access-Token': PUSHBULLET_TOKEN,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+    fetch(url, options);
 }
 
-const onBack = () => {
-    const backBtn = document.getElementById('back-btn');
-    backBtn.style.display = 'none';
-
-    const QREl = document.getElementById('QR');
-    QREl.style.display = 'none';
-
-    const fontEl = document.getElementById('font');
-    fontEl.style.display = 'block';
-}
-
-const handleClickEatBtn = () => {
-    showQRImg('eat');
-}
-
-const handleClickDrinkBtn = () => {
-    showQRImg('drink');
-}
-
-const handleClickChatBtn = () => {
-    showQRImg('chat');
-}
-
-const handleClickMeetBtn = () => {
-    showQRImg('meet');
-}
+const handleClickEatBtn = () => sendNotify('Em đói rùi 🍕');
+const handleClickDrinkBtn = () => sendNotify('Mún tà tưa 🧋');
+const handleClickChatBtn = () => sendNotify('Nhớ anh 💭');
+const handleClickMeetBtn = () => sendNotify('Iu nhắm 🥺');
 
 // Get element: buttons
 document.addEventListener('DOMContentLoaded', function() {
@@ -52,12 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const drinkBtn = document.getElementById('drink-btn')
     const chatBtn = document.getElementById('chat-btn')
     const meetBtn = document.getElementById('meet-btn')
-    const backBtn = document.getElementById('back-btn')
 
     // Add Events for btn
     if (eatBtn) eatBtn.addEventListener('click', handleClickEatBtn)
     if (drinkBtn) drinkBtn.addEventListener('click', handleClickDrinkBtn)
     if (chatBtn) chatBtn.addEventListener('click', handleClickChatBtn)
     if (meetBtn) meetBtn.addEventListener('click', handleClickMeetBtn)
-    if (backBtn) backBtn.addEventListener('click', onBack)
 })
