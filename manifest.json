@@ -3,6 +3,8 @@
     "name": "Miss Bae",
     "description": "Call me bae!",
     "version": "0.0.1",
+    "homepage_url": "https://github.com/TruongNBN1605/miss-bae-extension.git",
+    "author": "TruongNBN1605",
     "icons": {
         "16": "logo/logo-16.png",
         "48": "logo/logo-48.png",
